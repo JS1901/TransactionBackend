@@ -1,5 +1,5 @@
 // URL of the backend API
-const API_URL = "http://127.0.0.1:5000/api/transactions";
+const API_URL = "https://transactionbackend-4qat.onrender.com/api/transactions";
 
 // Function to fetch transaction data from the backend
 async function fetchTransactions() {
