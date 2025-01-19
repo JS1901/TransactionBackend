@@ -9,6 +9,7 @@ async function fetchTransactions() {
             throw new Error("Failed to fetch transactions");
         }
         const transactions = await response.json();
+        console.log("Fetched transactions:", transactions); // Debugging log
         populateTable(transactions);
     } catch (error) {
         console.error("Error fetching transactions:", error);
