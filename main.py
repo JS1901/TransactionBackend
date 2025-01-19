@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # In-memory storage for transactions (temporary; use a database in production)
 transactions = []
@@ -15,7 +17,16 @@ def add_transaction():
 # API to fetch transaction data for the web portal
 @app.route('/api/transactions', methods=['GET'])
 def get_transactions():
-    return jsonify(transactions), 200
+    transactions = [
+        {
+            "date": "2025-01-19",
+            "time": "06:30 PM",
+            "amount": 1000,
+            "utr_number": "123456789",
+            "upi_id": "user@upi"
+        }
+    ]
+    return jsonify(transactions)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
